@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Salah Esm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      width: 100%;
+      background-color: #ffffffee;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: center;
+      z-index: 1000;
+      padding: 1rem 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 1rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #007bff;
+    }
+
+    /* Sections */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 100px 20px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-in-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1, h2 {
+      color: #222;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    iframe {
+      width: 100%;
+      height: 400px;
+      border-radius: 10px;
+      border: none;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 0.9rem;
+      color: #777;
+      background-color: #f1f1f1;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="#home">Accueil</a>
+    <a href="#cv">CV</a>
+    <a href="#video">Elevator Pitch</a>
+    <a href="#civic">Civic Engagement</a>
+    <a href="#sports">Sports & Activities</a>
+  </nav>
+
+  <!-- Section Accueil -->
+  <section id="home">
+    <h1>Bienvenue sur mon Portfolio</h1>
+    <p>Je suis <strong>Salah Esm</strong>, étudiant en ingénierie passionné par les nouvelles technologies, l’énergie et les matériaux innovants. Ce portfolio présente mon parcours, mes activités et mon engagement.</p>
+  </section>
+
+  <!-- Section CV -->
+  <section id="cv">
+    <h2>Curriculum Vitae</h2>
+    <p>Vous pouvez consulter ou télécharger mon CV en français et en anglais ci-dessous :</p>
+    <a href="#" class="btn" target="_blank">📄 CV en Français</a>
+    <a href="#" class="btn" target="_blank">📄 CV in English</a>
+  </section>
+
+  <!-- Section Elevator Pitch -->
+  <section id="video">
+    <h2>Elevator Pitch</h2>
+    <p>Découvrez une courte présentation vidéo de mon parcours et de mes ambitions professionnelles :</p>
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Elevator Pitch"></iframe>
+  </section>
+
+  <!-- Section Civic Engagement -->
+  <section id="civic">
+    <h2>Civic Engagement</h2>
+    <p>J’ai participé à plusieurs projets citoyens et initiatives sociales, notamment dans le domaine de la durabilité et de l’aide communautaire. Ces expériences m’ont appris la collaboration, l’écoute et le leadership dans des contextes variés.</p>
+  </section>
+
+  <!-- Section Sports & Activities -->
+  <section id="sports">
+    <h2>Sports & Other Activities</h2>
+    <p>Je pratique régulièrement des activités sportives telles que le football et la natation, pour entretenir un bon équilibre entre travail et bien-être. Je m’intéresse également à des activités culturelles et scientifiques stimulantes.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Salah Esm — Tous droits réservés</p>
+  </footer>
+
+  <script>
+    // Animation d'apparition lors du scroll
+    const sections = document.querySelectorAll('section');
+    const options = { threshold: 0.1 };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
